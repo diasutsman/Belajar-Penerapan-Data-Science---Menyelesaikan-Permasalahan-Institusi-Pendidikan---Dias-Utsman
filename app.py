@@ -59,13 +59,33 @@ st.markdown("""
 # Load model and scaler
 @st.cache_resource
 def load_model():
-    model = joblib.load('model/dropout_prediction_model.joblib')
-    return model
+    try:
+        model = joblib.load('model/dropout_prediction_model.joblib')
+        return model
+    except Exception as e:
+        st.error(f"Error loading model: {e}")
+        # Try alternative file extension as fallback
+        try:
+            model = joblib.load('model/dropout_prediction_model.pkl')
+            return model
+        except Exception as e2:
+            st.error(f"Error loading fallback model: {e2}")
+            return None
 
 @st.cache_resource
 def load_scaler():
-    scaler = joblib.load('model/scaler.joblib')
-    return scaler
+    try:
+        scaler = joblib.load('model/scaler.joblib')
+        return scaler
+    except Exception as e:
+        st.error(f"Error loading scaler: {e}")
+        # Try alternative file extension as fallback
+        try:
+            scaler = joblib.load('model/scaler.pkl')
+            return scaler
+        except Exception as e2:
+            st.error(f"Error loading fallback scaler: {e2}")
+            return None
 
 @st.cache_data
 def load_data():
@@ -76,6 +96,8 @@ def load_data():
 try:
     model = load_model()
     scaler = load_scaler()
+    if model is None or scaler is None:
+        st.warning("⚠️ Some model components failed to load. Prediction functionality may be limited.")
     df = load_data()
     model_loaded = True
 except Exception as e:
