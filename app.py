@@ -65,12 +65,12 @@ def load_model():
     except Exception as e:
         st.error(f"Error loading model: {e}")
         # Try alternative file extension as fallback
-        try:
-            model = joblib.load('model/dropout_prediction_model.pkl')
-            return model
-        except Exception as e2:
-            st.error(f"Error loading fallback model: {e2}")
-            return None
+        # try:
+        #     model = joblib.load('model/dropout_prediction_model.pkl')
+        #     return model
+        # except Exception as e2:
+        #     st.error(f"Error loading fallback model: {e2}")
+        return None
 
 @st.cache_resource
 def load_scaler():
@@ -80,12 +80,12 @@ def load_scaler():
     except Exception as e:
         st.error(f"Error loading scaler: {e}")
         # Try alternative file extension as fallback
-        try:
-            scaler = joblib.load('model/scaler.pkl')
-            return scaler
-        except Exception as e2:
-            st.error(f"Error loading fallback scaler: {e2}")
-            return None
+        # try:
+        #     scaler = joblib.load('model/scaler.pkl')
+        #     return scaler
+        # except Exception as e2:
+        #     st.error(f"Error loading fallback scaler: {e2}")
+        return None
 
 @st.cache_data
 def load_data():

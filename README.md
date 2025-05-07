@@ -62,6 +62,8 @@ streamlit run app.py
 
 Setelah menjalankan perintah di atas, aplikasi akan berjalan di browser pada alamat http://localhost:8501
 
+atau buka di 
+
 ## Conclusion
 Jelaskan konklusi dari proyek yang dikerjakan.
 
