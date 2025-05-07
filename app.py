@@ -59,12 +59,12 @@ st.markdown("""
 # Load model and scaler
 @st.cache_resource
 def load_model():
-    model = joblib.load('model/dropout_prediction_model.pkl')
+    model = joblib.load('model/dropout_prediction_model.joblib')
     return model
 
 @st.cache_resource
 def load_scaler():
-    scaler = joblib.load('model/scaler.pkl')
+    scaler = joblib.load('model/scaler.joblib')
     return scaler
 
 @st.cache_data
