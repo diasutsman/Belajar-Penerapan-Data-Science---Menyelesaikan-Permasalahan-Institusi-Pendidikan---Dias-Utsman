@@ -107,7 +107,7 @@ except Exception as e:
 # Sidebar
 st.sidebar.markdown("<h1 class='main-header'>Jaya Jaya Institut</h1>", unsafe_allow_html=True)
 st.sidebar.markdown("<h2 class='sub-header'>Student Dropout Prediction</h2>", unsafe_allow_html=True)
-st.sidebar.image("https://img.freepik.com/free-vector/flat-design-university-concept_23-2148192778.jpg", use_column_width=True)
+st.sidebar.image("https://img.freepik.com/free-vector/flat-design-university-concept_23-2148192778.jpg", use_container_width=True)
 
 pages = ["Dashboard", "Student Predictor", "About"]
 selection = st.sidebar.radio("Navigation", pages)
